@@ -1,0 +1,16 @@
+<form action="/restaurant/{{restaurant._id}}/edit/update" method="POST">
+    <input type="text" placeholder="店面名稱" name="name" value="{{restaurant.name}}">
+    <input type="text" placeholder="店面英文名稱" name="name_en" value="{{restaurant.name_en}}">
+    <input type="text" placeholder="類別" name="category" value="{{restaurant.category}}">
+    <input type="text" placeholder="照片網址" name="image" value="{{restaurant.image}}">
+    <input type="text" placeholder="餐廳地址" name="location" value="{{restaurant.location}}">
+    <input type="text" placeholder="餐廳電話" name="phone" value="{{restaurant.phone}}">
+    <input type="text" placeholder="餐廳地圖" name="google_map" value="{{restaurant.google_map}}">
+    <input type="text" placeholder="餐廳評分" name="rating" value="{{restaurant.rating}}">
+    <input type="text" placeholder="餐廳詳述" name="description" value="{{restaurant.description}}">
+    <button type="submit">儲存</button>
+</form>
+<form action="/restaurant/{{restaurant._id}}/delete" method="POST" style="display: inline;">
+  <button type="submit">刪除</button>
+</form>
+<a href="/">放棄修改</a>

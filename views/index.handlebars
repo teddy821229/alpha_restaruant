@@ -20,7 +20,7 @@
     <div class="row row-cols-1 row-cols-md-3" id="data-panel">
       {{#each restaurants}}
       <div class="col mb-4">
-        <a href="/restaurant/{{ this.id }}" class=" text-decoration-none text-secondary">
+        <a href="/restaurant/{{ this._id }}" class=" text-decoration-none text-secondary">
           <div class="card mb-2">
             <img class="card-img-top" src="{{this.image}}" alt="Card image cap">
             <div class="card-body restaurant-item-body">

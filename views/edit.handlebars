@@ -4,7 +4,7 @@
       <div class="card-body mt-3 ">
         
         <h2 class="card-title text-center mb-5">修改餐廳資料</h5>
-        <form action="/restaurants/{{restaurant._id}}/edit/update" method="POST" id="edit-form">
+        <form action="/restaurants/{{restaurant._id}}?_method=PUT" method="POST" id="edit-form">
 
           <div class="row my-4">
             <label for="numbers" class="col-md-2 col-form-label text-center">店舖名稱</label>
@@ -75,7 +75,7 @@
         </form>
 
         <div class="d-flex justify-content-end" id="delete-box">
-          <form action="/restaurants/{{restaurant._id}}/delete" method="POST" style="display: inline;">
+          <form action="/restaurants/{{restaurant._id}}?_method=DELETE" method="POST" style="display: inline;">
             <button class="btn btn-danger mx-2" type="submit">刪除</button>
           </form>
           <a href="/" class="btn btn-light mx-2" role="button">放棄修改</a>

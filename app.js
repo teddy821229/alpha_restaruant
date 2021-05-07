@@ -1,10 +1,14 @@
+//設定外部現成套現
 const express = require("express")
 const app = express()
 const mongoose = require("mongoose")
 const exphbs = require("express-handlebars")
 const bodyParser = require("body-parser")
+const methodOverride = require("method-override")
 const Restaurant = require("./models/restaurant")
 const port = 3000
+
+const routes = require("./routes")
 
 //db connection
 mongoose.connect("mongodb://localhost/restaurant-list", { useNewUrlParser: true , useUnifiedTopology: true})
@@ -27,13 +31,11 @@ app.use(express.static("public"))
 //setting body-parser
 app.use(bodyParser.urlencoded({ extended: true}))
 
+//set method override
+app.use(methodOverride("_method"))
+
 //route setting
-app.get("/", (req, res) => {
-    Restaurant.find()
-        .lean()
-        .then(restaurant => res.render("index", {restaurant}))
-        .catch(error => console.error(error))
-})
+app.use(routes)
 
 //params
 app.get("/restaurants/:id", (req, res)=> {
@@ -43,6 +45,7 @@ app.get("/restaurants/:id", (req, res)=> {
         .then(restaurant => res.render("show", {restaurant}))
         .catch(error => console.error(error))
 })
+
 
 //search -> querystring
 app.get("/search", (req, res) => {
@@ -63,15 +66,7 @@ app.get("/addnew", (req, res) => {
 })
 
 app.post("/addnew", (req, res) => {
-    const name = req.body.name
-    const name_en = req.body.name_en
-    const category = req.body.category
-    const image = req.body.image
-    const location = req.body.location
-    const phone = req.body.phone
-    const google_map = req.body.google_map
-    const rating = req.body.rating
-    const description = req.body.description
+    const { name, name_en, category, image, location, phone, google_map, rating, description} = req.body
     //回傳資料
     return Restaurant.create({
         name,
@@ -100,17 +95,9 @@ app.get("/restaurants/:id/edit", (req, res) => {
 })
 
 //儲存修改資料
-app.post("/restaurants/:id/edit/update", (req, res) => {
+app.put("/restaurants/:id", (req, res) => {
     const id = req.params.id
-    const name = req.body.name
-    const name_en = req.body.name_en
-    const category = req.body.category
-    const image = req.body.image
-    const location = req.body.location
-    const phone = req.body.phone
-    const google_map = req.body.google_map
-    const rating = req.body.rating
-    const description = req.body.description
+    const { name, name_en, category, image, location, phone, google_map, rating, description} = req.body
     return Restaurant.findById(id)
         .then(restaurant => {
             restaurant.name = name
@@ -130,7 +117,7 @@ app.post("/restaurants/:id/edit/update", (req, res) => {
 })
 
 //刪除資料
-app.post("/restaurants/:id/delete", (req, res) => {
+app.delete("/restaurants/:id", (req, res) => {
     const id = req.params.id
     return Restaurant.findById(id)
         .then(restaurant => restaurant.remove())

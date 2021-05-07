@@ -18,9 +18,10 @@
 <div class="container mt-5">
   <div class="row col-md-10 col-12 mx-auto">
     <div class="row row-cols-1 row-cols-md-3" id="data-panel">
-      {{#each restaurants}}
+
+      {{#each restaurant}}
       <div class="col mb-4">
-        <a href="/restaurant/{{ this._id }}" class=" text-decoration-none text-secondary">
+        <a href="/restaurants/{{ this._id }}" class=" text-decoration-none text-secondary">
           <div class="card mb-2">
             <img class="card-img-top" src="{{this.image}}" alt="Card image cap">
             <div class="card-body restaurant-item-body">
@@ -34,7 +35,7 @@
                   <i class="fas fa-star fa-xs"></i>
                 </span>
                 <span>
-                  <a href="/restaurant/{{this._id}}/edit" class="btn btn-warning btn-sm">編輯/刪除</a>
+                  <a href="/restaurants/{{this._id}}/edit" class="btn btn-warning btn-sm">編輯/刪除</a>
                 </span>
               </div>
 
@@ -44,16 +45,15 @@
       </div>
       {{/each}}
       {{!-- add-new-card --}}
-
       <div class="col mb-4" id="add-card" >
-        <a href="/news" class=" text-decoration-none text-secondary">
-          <div class="card" id="add-new-restaurant">
-            <div class="card-body restaurant-item-body d-flex justify-content-center align-items-center">
-              <h3 class="card-title my-auto" id="add-title">現在添加新餐廳</h6>
-            </div>
+        <a href="/addnew" class=" text-decoration-none text-secondary">
+         <div class="card" id="add-new-restaurant">
+           <div class="card-body restaurant-item-body d-flex justify-content-center align-items-center">
+             <h3 class="card-title my-auto" id="add-title">現在添加新餐廳</h6>
+           </div>
          </div>
-        </a>
-     </div>
+       </a>
+      </div>
     </div>
   </div>
 </div>

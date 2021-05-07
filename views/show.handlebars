@@ -30,13 +30,12 @@
         {{restaurant.phone}}
       </p>
 
-      <p class="mb-5">
+      <img class="rounded mx-auto d-block my-5 w-100" src="{{restaurant.image}} " alt="{{restaurant.name}}" style="max-width: 600px;">
+      <p class="my-5 mx-auto w-50">
         {{restaurant.description}}
       </p>
-
-      <img class="rounded mx-auto d-block mb-5 w-100" src="{{restaurant.image}} " alt="{{restaurant.name}}" style="max-width: 600px;">
       <div class="d-flex justify-content-end mt-5">
-        <a href="/restaurant/{{restaurant._id}}/edit" class="btn btn-warning mx-3">編輯/刪除</a>
+        <a href="/restaurants/{{restaurant._id}}/edit" class="btn btn-warning mx-3">編輯/刪除</a>
         <a href="/" class="btn btn-light mx-3">回到首頁</a>
       </div>
 

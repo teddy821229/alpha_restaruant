@@ -45,16 +45,18 @@ app.get("/restaurant/:id", (req, res)=> {
         .catch(error => console.error(error))
 })
 
-// //search -> querystring
-// app.get("/search", (req, res) => {
-//     Restaurant.find()
-//         .lean()
-
-//     const restaurants = restaurantList.results.filter((restaurant) => {
-//         return restaurant.name.toLocaleLowerCase().includes(req.query.keyword.toLocaleLowerCase()) || restaurant.category.toLocaleLowerCase().includes(req.query.keyword.toLocaleLowerCase())
-//     })
-//     res.render("index", {restaurants:restaurants, keyword:req.query.keyword})
-// })
+//search -> querystring
+app.get("/search", (req, res) => {
+    const keyword = req.query.keyword
+    return Restaurant.find({
+        "$or": [
+            {"name":{ $regex: `${keyword}`, $options: "i"}},
+            {"category": { $regex: `${keyword}`, $options: "i"}}
+        ]
+    })
+        .lean()
+        .then(restaurants => res.render("index", {restaurants, keyword}))
+})
 
 //新增功能
 app.get("/news", (req, res) => {

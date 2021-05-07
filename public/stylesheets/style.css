@@ -46,8 +46,7 @@ header {
   }
   
   .form-control:focus {
-    box-shadow: none;
-    border-color: #ced2da;
+    border-color: #378eff;
   }
   
   .card {
@@ -66,6 +65,15 @@ header {
     text-overflow:ellipsis;
     white-space:nowrap;
     text-decoration: none;
+  }
+
+  #add-new-restaurant {
+    background: #dddddd69 center center url('https://assets-lighthouse.s3.amazonaws.com/uploads/image/file/5720/restaurants-list-cover.jpg');
+  }
+
+  #add-title {
+    color:#000;
+    font-weight: bold;
   }
   
   .restaurant-category {

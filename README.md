@@ -25,7 +25,7 @@
 1.由github clone
 
 ```
-git clone https://github.com/teddy821229/alpha_restaruant.git
+git clone https://github.com/teddy821229/alpha_restaurant.git
 ```
 
 2.安裝套件

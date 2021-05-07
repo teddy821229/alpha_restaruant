@@ -71,6 +71,10 @@ header {
     color: #666666;
     font-size: 0.8rem;
   }
+
+  #add-new-restaurant {
+    height: 97.5%;
+  }
   
   .restaurant-show-title {
     position: relative;

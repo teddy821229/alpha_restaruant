@@ -37,8 +37,8 @@ app.get("/", (req, res) => {
 })
 
 //params
-app.get("/restaurant/:restaurant_id", (req, res)=> {
-    const id = req.params.restaurant_id
+app.get("/restaurant/:id", (req, res)=> {
+    const id = req.params.id
     Restaurant.findById(id)
         .lean()
         .then(restaurant => res.render("show", {restaurant}))
@@ -56,10 +56,15 @@ app.get("/restaurant/:restaurant_id", (req, res)=> {
 //     res.render("index", {restaurants:restaurants, keyword:req.query.keyword})
 // })
 
+//新增功能
+app.get("/news", (req, res) => {
+    return res.render("new")
+})
+
 //修改功能
 //渲染畫面
-app.get("/restaurant/:restaurant_id/edit", (req, res) => {
-    const id = req.params.restaurant_id
+app.get("/restaurant/:id/edit", (req, res) => {
+    const id = req.params.id
     Restaurant.findById(id)
     .lean()
     .then(restaurant => res.render("edit", {restaurant}))
@@ -67,8 +72,8 @@ app.get("/restaurant/:restaurant_id/edit", (req, res) => {
 })
 
 //儲存修改資料
-app.post("/restaurant/:restaurant_id/edit/update", (req, res) => {
-    const id = req.params.restaurant_id
+app.post("/restaurant/:id/edit/update", (req, res) => {
+    const id = req.params.id
     const name = req.body.name
     const name_en = req.body.name_en
     const category = req.body.category
@@ -97,8 +102,8 @@ app.post("/restaurant/:restaurant_id/edit/update", (req, res) => {
 })
 
 //刪除資料
-app.post("/restaurant/:restaurant_id/delete", (req, res) => {
-    const id = req.params.restaurant_id
+app.post("/restaurant/:id/delete", (req, res) => {
+    const id = req.params.id
     return Restaurant.findById(id)
         .then(restaurant => restaurant.remove())
         .then(() => res.redirect("/"))

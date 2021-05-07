@@ -47,10 +47,11 @@ header {
   
   .form-control:focus {
     box-shadow: none;
-    border-color: #ced4da;
+    border-color: #ced2da;
   }
   
   .card {
+    min-height: 300px;
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
   }
 
@@ -71,10 +72,6 @@ header {
     color: #666666;
     font-size: 0.8rem;
   }
-
-  #add-new-restaurant {
-    height: 97.5%;
-  }
   
   .restaurant-show-title {
     position: relative;
@@ -92,6 +89,15 @@ header {
     text-align: center;
     font-size: 1.8rem;
     text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  }
+
+  #edit-form {
+    position: relative;
+  }
+
+  #delete-box {
+    position: relative;
+    top: -2.5rem;
   }
   
   @media screen and (max-width: 992px) {

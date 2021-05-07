@@ -1,10 +1,10 @@
 <div class="row">
   <div class="col-12 col-lg-10 col-xl-8 mx-auto line">
     <div class="card">
-      <div class="card-body my-3 ">
+      <div class="card-body mt-3 ">
         
         <h2 class="card-title text-center mb-5">修改餐廳資料</h5>
-        <form action="/restaurant/{{restaurant._id}}/edit/update" method="POST">
+        <form action="/restaurant/{{restaurant._id}}/edit/update" method="POST" id="edit-form">
 
           <div class="row my-4">
             <label for="numbers" class="col-md-2 col-form-label text-center">店舖名稱</label>
@@ -69,16 +69,17 @@
             </div>
           </div>
 
-          <div class="offset-md-9">
+          <div class="d-flex justify-content-center mt-5">
             <button class="btn btn-primary  mx-1" type="submit">儲存</button>
-            <form action="/restaurant/{{restaurant._id}}/delete" method="POST" style="display: inline;">
-              <button class="btn btn-danger mx-1" type="submit">刪除</button>
-              <a href="/" class="btn btn-light mx-1" role="button">放棄修改</a>
-            </form>
           </div>
-
         </form>
 
+        <div class="d-flex justify-content-end" id="delete-box">
+          <form action="/restaurant/{{restaurant._id}}/delete" method="POST" style="display: inline;">
+            <button class="btn btn-danger mx-2" type="submit">刪除</button>
+          </form>
+          <a href="/" class="btn btn-light mx-2" role="button">放棄修改</a>
+        </div>
       </div>        
     </div>
   </div>

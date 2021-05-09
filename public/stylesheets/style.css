@@ -39,6 +39,11 @@ header {
     color: #aaaaaa;
     font-size: 0.8rem;
   }
+
+  .sort-select {
+    max-width: 400px;
+    margin-right: 10rem;
+  }
   
   .btn-major {
     background-color: #9b4b4b;

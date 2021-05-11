@@ -4,7 +4,7 @@
       <div class="card-body my-3 ">
         
         <h2 class="card-title text-center mb-5">新增餐廳資料</h5>
-        <form action="/addnew" method="POST" id="addnew-form" >
+        <form action="/addnew" method="POST" id="addnew-form" onsubmit="return checkValidity()" novalidate >
 
           <div class="row my-4">
             <label for="numbers" class="col-md-2 col-form-label text-center">店舖名稱</label>
@@ -92,6 +92,13 @@
             <a href="/" class="btn btn-light mx-2" role="button">放棄新增</a>
           </div>
         </form>
+        <script type="text/javascript">
+          const form = document.querySelector('#addnew-form')
+          const submitButton = document.querySelector("#addnew-submit-button")
+          submitButton.addEventListener('click',  function onButtonClicked(event) {
+            form.classList.add('was-validated')
+          })
+        </script>
       </div>        
     </div>
   </div>

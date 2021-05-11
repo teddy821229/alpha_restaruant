@@ -75,12 +75,37 @@
         </form>
 
         <div class="d-flex justify-content-end" id="delete-box">
-          <form action="/restaurants/{{restaurant._id}}?_method=DELETE" method="POST" style="display: inline;">
-            <button class="btn btn-danger mx-2" type="submit">刪除</button>
-          </form>
+          {{!-- <form action="/restaurants/{{restaurant._id}}?_method=DELETE" method="POST" style="display: inline;"> --}}
+            <button class="btn btn-danger mx-2" type="button" data-bs-toggle="modal" data-bs-target="#delete-modal">刪除</button>
+          {{!-- </form> --}}
           <a href="/" class="btn btn-light mx-2" role="button">放棄修改</a>
         </div>
       </div>        
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="delete-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="delete-modal-label" style="color: rgb(255, 100, 100);">您確定要刪除嗎？</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <h3 style="line-height: 3rem;">
+          資料刪除後將無法復原
+          <br/>
+          您確定要刪除嗎？
+        </h3>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">取消刪除</button>
+        <form action="/restaurants/{{restaurant._id}}?_method=DELETE" method="POST" style="display: inline;">
+          <button type="submit" class="btn btn-danger">確定刪除</button>
+        </form>
+      </div>
     </div>
   </div>
 </div>
